@@ -14,7 +14,8 @@
     "prod": "NODE_ENV=production npm-run-all clean build server:prod",
     "watch": "nodemon",
     "build": "npm run clean && npm run build-babel",
-    "start": "npm run build && node ./build/index.js",
+    "start": "npm run prod",
+
     "test": "mocha --require @babel/polyfill --require @babel/register"
   },
   "dependencies": {
