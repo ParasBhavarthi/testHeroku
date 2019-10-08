@@ -1,11 +1,9 @@
 {
   "name": "f19-esn-sb5",
   "version": "0.0.0",
-
   "engines": {
     "node": "10.16.0"
   },
-
   "private": true,
   "scripts": {
     "server": "babel-node ./src/bin/www",
@@ -13,7 +11,6 @@
     "dev": "NODE_ENV=development npm-run-all server",
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel -d ./build ./src -s",
-    "build": "babel ./src --out-dir dist",
     "prod": "NODE_ENV=production npm-run-all clean build server:prod",
     "watch": "nodemon",
     "build": "npm run clean && npm run build-babel",
@@ -22,6 +19,7 @@
   },
   "dependencies": {
     "babel-install": "^2.1.0",
+    "babel-preset-env": "^1.7.0",
     "bcrypt": "^3.0.6",
     "bcryptjs": "^2.4.3",
     "cookie": "^0.4.0",
@@ -50,11 +48,28 @@
     "@babel/polyfill": "^7.6.0",
     "@babel/preset-env": "^7.6.2",
     "@babel/register": "^7.6.2",
+    "babel-cli": "^6.26.0",
     "grunt": "^1.0.4",
     "grunt-contrib-jshint": "^2.1.0",
     "grunt-mocha-istanbul": "^5.0.2",
     "grunt-mocha-test": "^0.13.3",
     "mocha-junit-reporter": "^1.23.1",
     "nodemon": "^1.19.3"
-  }
+  },
+  "description": "[![BCH compliance](https://bettercodehub.com/edge/badge/cmusv-fse/f19-ESN-SB5?branch=master&token=ce478db9f9ce3812a6e2915c604761b8a8514cbf)](https://bettercodehub.com/)",
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ParasBhavarthi/testHeroku.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ParasBhavarthi/testHeroku/issues"
+  },
+  "homepage": "https://github.com/ParasBhavarthi/testHeroku#readme"
 }
