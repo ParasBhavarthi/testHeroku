@@ -1,6 +1,11 @@
 {
   "name": "f19-esn-sb5",
   "version": "0.0.0",
+
+  "engines": {
+    "node": "10.16.0"
+  },
+
   "private": true,
   "scripts": {
     "start": "npm run prod",
