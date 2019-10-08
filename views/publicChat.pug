@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  nav(class="navbar navbar-expand-lg navbar-light bg-light")
+    a(class="navbar-brand" href="/home") Home
+    button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+      span(class="navbar-toggler-icon")
+    div(class="collapse navbar-collapse" id="navbarColor03")
+      ul(class="navbar-nav mr-auto")
+        li(class="nav-item active")
+          a(class="nav-link" href="/public-chat") Public Chat Room
+        li.nav-item(class="")
+          a(class="nav-link active" id="logout" href="/") Logout
+  div(id="message" style ="overflow-y: scroll" class="mt-3")
+    ul(id = "messages", style ="list-style-type: none " , class= "pl-0 mb-0")
+  form(id="inputBox", class="form-inline")
+    input(id="text" class=" align-self-baseline p-2 flex-grow-1 bd-highlight m-2" type="textbox" placeholder="Type Something...")
+    button(class="align-self-baseline p-2 bd-highlight btn btn-dark m-2  text-center" type="button" id="sendButton") Send
+  script
+    include ../public/javascripts/socket/chat-public.js
+    include ../public/javascripts/socket/home.logout.js

@@ -1,0 +1,57 @@
+extends layout
+
+block head-block
+  script(src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js")
+
+block content
+  div.progress(class="mb-3")
+    div.progress-bar(class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%")
+  .container
+    .page-header
+      h3 Welcomet to Emergency Social Network!
+      p.lead
+        | provide civilians with a social network that they can use during emergency situations
+      h5 What is ESN ?
+      p.text-primary
+        | The system is different from other existing social networks because it is specifically designed to effectively support
+        strong small communities of civilians
+        | serioussly affected in case of
+        strong natural disasters
+        | like earthquake, tsunami, tornado, wildfire, etc.
+      h5 Agreement to Share
+      p.text-primary
+        | By joining ESN, you consent our right to store your submitted status and to share your current status with other members in the community.
+
+      .row
+        .col-9
+          p.text-primary OK
+          p I do not need help
+        .col-3
+          img.img-fluid(src='https://www.pngfind.com/pngs/m/44-445418_green-thumbs-up-thumbs-up-and-down-icon.png', style='background-color: transparent;' alt='OK')
+      .row
+        .col-9
+          p.text-primary Help
+          p I need help, but this is not a life threatening emergency.
+        .col-3
+          img.img-fluid(src='https://banner2.cleanpng.com/20171217/20d/exclamation-mark-png-5a36966ce90e68.0037079815135268929546.jpg', style='background-color: transparent;' alt='Help')
+      .row
+        .col-9
+          p.text-primary Emergency
+          p I need help now: this is a life threatening emergency!
+        .col-3
+          img.img-circle.img-fluid(src='https://careralert.com/emergencyalert/wp-content/uploads/2018/04/SOS-icon-only-EmcyAlert_Logo-250x250F-446x502.png', style='background-color: transparent;' alt='Emergency')
+      .row
+        .col-9
+          p.text-primary Undefined
+          p The user has not proved any status info.
+    form(novalidate, action="/tutorial", method="post", id="form")
+      div(class="form-group")
+        div.form-check
+          input.form-check-input(type="checkbox", value="", id="agreeCheck", name="agreeCheck")
+          label.form-check-label(for="agreeCheck") I Agree
+          div(class="invalid-feedback") #{formError.agreeCheck ? formError.agreeCheck : ""}
+      button(type="submit", class="btn btn-primary") Submit
+
+
+    script
+      include ../public/javascripts/form-validators/tutorial.form-validator.js

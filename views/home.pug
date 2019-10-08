@@ -1,0 +1,24 @@
+extends layout
+
+block head-block
+  link(rel="stylesheet", type="text/css", href="/css/home.user-list.css")
+
+block content
+  nav(class="navbar navbar-expand-lg navbar-light bg-light")
+    a(class="navbar-brand" href="/home") Home
+    button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+      span(class="navbar-toggler-icon")
+    div(class="collapse navbar-collapse" id="navbarColor03")
+      ul(class="navbar-nav mr-auto")
+        li(class="nav-item active")
+          a(class="nav-link" href="/public-chat") Public Chat Room
+        li.nav-item(class="")
+          a(class="nav-link active" id="logout" href="/") Logout
+  h3(class="pl-4 mt-5") User List
+  div(id="active-user-scroll" style ="overflow-y: scroll")
+    div.container(id="active-user-list", class="mt-2")
+      table(class="table table-hover", id="active-user-table")
+
+  script
+    include ../public/javascripts/socket/home.user-list.js
+    include ../public/javascripts/socket/home.logout.js

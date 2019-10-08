@@ -1,0 +1,23 @@
+extends layout
+
+block head-block
+  script(src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js")
+
+block content
+  div.container(class="shadow-sm py-3")
+    form(id="form", action="/login", method="post", novalidate)
+      div(class="form-group")
+        label(for="usernameInput") Username
+        input(name="username", type="text", class="form-control" + (formError.username ? " is-invalid" : "") ,
+          id="usernameInput", placeholder="Enter username", value=(form.username ? form.username : ""))
+        div(class="invalid-feedback") #{formError.username ? formError.username : ""}
+
+      div(class="form-group")
+        label(for="password") Password
+        input(name="password", type="password", class="form-control" + (formError.password ? " is-invalid" : ""), id="password", placeholder="Enter password")
+        div(class="invalid-feedback") #{formError.password ? formError.password : ""}
+
+      button(type="submit", class="btn btn-primary") Submit
+      
+    script
+      include ../public/javascripts/form-validators/login.form-validator.js

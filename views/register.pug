@@ -1,0 +1,31 @@
+extends layout
+
+block head-block
+  script(src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js")
+
+block content
+
+  div.container(class="shadow-sm py-3")
+    div.progress(class="mb-3")
+        div.progress-bar(class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%")
+    form(id="form", action='/register', method="post", novalidate)
+      div(class="form-group")
+        label(for="usernameInput") Username
+        input(name="username", type="text", class="form-control" + (formError.username ? " is-invalid" : "") ,
+          id="usernameInput", placeholder="Enter username", value=(form.username ? form.username : ""))
+        div(class="invalid-feedback") #{formError.username ? formError.username : ""}
+
+      div(class="form-group")
+        label(for="password") Password
+        input(name="password", type="password", class="form-control" + (formError.password ? " is-invalid" : ""), id="password", placeholder="Enter password")
+        div(class="invalid-feedback") #{formError.password ? formError.password : ""}
+
+      div(class="form-group")
+        label(for="password2") Password
+        input(name="password2", type="password", class="form-control" + (formError.password2 ? " is-invalid" : ""), id="password2", placeholder="Enter password")
+        div(class="invalid-feedback") #{formError.password2 ? formError.password2 : ""}
+
+      button(type="submit", class="btn btn-primary") Submit
+
+    script
+      include ../public/javascripts/form-validators/register.form-validator.js

@@ -1,0 +1,13 @@
+mixin alert-list(alerts)
+  if alerts
+    each alert in alerts
+      if alert.type === 'success'
+        div.alert.alert-success(role="alert") #{alert.content}
+      else if alert.type === 'warning'
+        div.alert.alert-warning(role="alert") #{alert.content}
+      else if alert.type === 'danger'
+        div.alert.alert-danger(role="alert") #{alert.content}
+
+
+
+
