@@ -6,7 +6,6 @@
   },
   "private": true,
   "scripts": {
-
     "server:prod": "node ./dist/bin/www",
     "dev": "NODE_ENV=development npm-run-all server",
     "clean": "rm -rf build && mkdir build",
