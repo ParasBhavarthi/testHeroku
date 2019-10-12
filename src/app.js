@@ -32,15 +32,12 @@ app.use('/register', registerRouter);
 app.use('/home', validateTokenMiddleWare, homeRouter);
 app.use('/tutorial', validateTokenMiddleWare, tutorialRouter);
 app.use('/public-chat', validateTokenMiddleWare, publicChatRouter);
-//app.get('/favicon.ico', (req, res) => res.status(204));
 
 app.use('/favicon.ico', ignoreFavicon);
 
 function ignoreFavicon(req, res, next) {
-  if (req.originalUrl === '/favicon.ico') {
+
     res.status(204).json({nope: true});
-  } else {
-    next();
-  }
+
 }
 export default app;
